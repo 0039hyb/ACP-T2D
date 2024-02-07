@@ -113,7 +113,7 @@ ggplot(box_a_WNT5B,aes(x=TYPE,y=WNT5B,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
   stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","ACP")),method="wilcox.test")+#添加检验
-  xlab("")#修改横坐标
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_WNT5B$WNT5B) * 1.1))#修改横坐标
 
 KRT14 <- as.numeric(expa_choose[2,])
 box_a_KRT14 <- as.data.frame(KRT14)
@@ -122,7 +122,7 @@ ggplot(box_a_KRT14,aes(x=TYPE,y=KRT14,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
   stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","ACP")),method="wilcox.test")+#添加检验
-  xlab("")#修改横坐标
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_KRT14$KRT14) * 1.1))#修改横坐标
 FGF19 <- as.numeric(expa_choose[3,])
 box_a_FGF19 <- as.data.frame(FGF19)
 box_a_FGF19$TYPE <- lable2
@@ -130,7 +130,7 @@ ggplot(box_a_FGF19,aes(x=TYPE,y=FGF19,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
   stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","ACP")),method="wilcox.test")+#添加检验
-  xlab("")#修改横坐标
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_FGF19$FGF19) * 1.1))#修改横坐标
 DKK1 <- as.numeric(expa_choose[4,])
 box_a_DKK1 <- as.data.frame(DKK1)
 box_a_DKK1$TYPE <- lable2
@@ -138,7 +138,7 @@ ggplot(box_a_DKK1,aes(x=TYPE,y=DKK1,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
   stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","ACP")),method="wilcox.test")+#添加检验
-  xlab("")#修改横坐标
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_DKK1$DKK1) * 1.1))#修改横坐标
 MMP12 <- as.numeric(expa_choose[5,])
 box_a_MMP12 <- as.data.frame(MMP12)
 box_a_MMP12$TYPE <- lable2
@@ -146,7 +146,7 @@ ggplot(box_a_MMP12,aes(x=TYPE,y=MMP12,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
   stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","ACP")),method="wilcox.test")+#添加检验
-  xlab("")#修改横坐标
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_MMP12$MMP12) * 1.1))#修改横坐标
 IKBKB <- as.numeric(expa_choose[6,])
 box_a_IKBKB <- as.data.frame(IKBKB)
 box_a_IKBKB$TYPE <- lable2
@@ -154,7 +154,7 @@ ggplot(box_a_IKBKB,aes(x=TYPE,y=IKBKB,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
   stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","ACP")),method="wilcox.test")+#添加检验
-  xlab("")#修改横坐标
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_IKBKB$IKBKB) * 1.1))#修改横坐标
 
 PLAU <- as.numeric(expa_choose[7,])
 box_a_PLAU <- as.data.frame(PLAU)
@@ -163,60 +163,60 @@ ggplot(box_a_PLAU,aes(x=TYPE,y=PLAU,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
   stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","ACP")),method="wilcox.test")+#添加检验
-  xlab("")#修改横坐标
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_PLAU$PLAU) * 1.1))#修改横坐标
 
 library(ggpubr)
 
 expa_choose <- dia2[choose_gene_1se,]
-lable2 <- ifelse(group_dia1=="normal","Normal","DIA")
+lable2 <- ifelse(group_dia2=="normal","Normal","DIA")
 WNT5B <- as.numeric(expa_choose[1,])
 box_a_WNT5B <- as.data.frame(WNT5B)
 box_a_WNT5B$TYPE <- lable2
 ggplot(box_a_WNT5B,aes(x=TYPE,y=WNT5B,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
-  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="t.test")+#添加检验
-  xlab("")#修改横坐标
+  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="wilcox.test")+#添加检验
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_WNT5B$WNT5B) * 1.1))#修改横坐标
 KRT14 <- as.numeric(expa_choose[2,])
 box_a_KRT14 <- as.data.frame(KRT14)
 box_a_KRT14$TYPE <- lable2
 ggplot(box_a_KRT14,aes(x=TYPE,y=KRT14,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
-  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="t.test")+#添加检验
-  xlab("")#修改横坐标
+  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="wilcox.test")+#添加检验
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_KRT14$KRT14) * 1.1))#修改横坐标
 FGF19 <- as.numeric(expa_choose[3,])
 box_a_FGF19 <- as.data.frame(FGF19)
 box_a_FGF19$TYPE <- lable2
 ggplot(box_a_FGF19,aes(x=TYPE,y=FGF19,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
-  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="t.test")+#添加检验
-  xlab("")#修改横坐标
+  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="wilcox.test")+#添加检验
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_FGF19$FGF19) * 1.1))#修改横坐标
 DKK1 <- as.numeric(expa_choose[4,])
 box_a_DKK1 <- as.data.frame(DKK1)
 box_a_DKK1$TYPE <- lable2
 ggplot(box_a_DKK1,aes(x=TYPE,y=DKK1,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
-  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="t.test")+#添加检验
-  xlab("")#修改横坐标
+  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="wilcox.test")+#添加检验
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_DKK1$DKK1) * 1.1))#修改横坐标
 MMP12 <- as.numeric(expa_choose[5,])
 box_a_MMP12 <- as.data.frame(MMP12)
 box_a_MMP12$TYPE <- lable2
 ggplot(box_a_MMP12,aes(x=TYPE,y=MMP12,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
-  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="t.test")+#添加检验
-  xlab("")#修改横坐标
+  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="wilcox.test")+#添加检验
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_MMP12$MMP12) * 1.1))#修改横坐标
 IKBKB <- as.numeric(expa_choose[6,])
 box_a_IKBKB <- as.data.frame(IKBKB)
 box_a_IKBKB$TYPE <- lable2
 ggplot(box_a_IKBKB,aes(x=TYPE,y=IKBKB,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
-  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="t.test")+#添加检验
-  xlab("")#修改横坐标
+  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="wilcox.test")+#添加检验
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_IKBKB$IKBKB) * 1.1))#修改横坐标
 
 PLAU <- as.numeric(expa_choose[7,])
 box_a_PLAU <- as.data.frame(PLAU)
@@ -224,8 +224,8 @@ box_a_PLAU$TYPE <- lable2
 ggplot(box_a_PLAU,aes(x=TYPE,y=PLAU,color=TYPE),size=3.5)+
   geom_boxplot()+
   theme_bw()+#改变绘图主题
-  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="t.test")+#添加检验
-  xlab("")#修改横坐标
+  stat_compare_means(aes(label = ..p.signif..),comparisons = list(c("Normal","DIA")),method="wilcox.test")+#添加检验
+  xlab("")+coord_cartesian(ylim = c(0, max(box_a_PLAU$PLAU) * 1.1))#修改横坐标
 
 
 M<-cor(t(dia1[choose_gene_1se,]))  
