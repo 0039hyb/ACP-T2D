@@ -1,21 +1,21 @@
 library(tinyarray)
 library(data.table)
 
-dia2 <- geo_download("GSE41762")
-dia2_pd <- dia2$pd
-dia2 <- dia2$exp
+dia2_full <- geo_download("GSE41762")
+dia2_pd_full <- dia2_full$pd
+dia2_full <- dia2_full$exp
 
-dia3 = dia2
-dia3_pd = dia2_pd
+dia3 = dia2_full
+dia3_pd = dia2_pd_full
 
 
 set.seed(1)
 #
-ctrl_pick <- sample(colnames(dia2)[dia2_pd$`status:ch1` == "Non-diabetic donor"], 40)
-t2d_pick  <- sample(colnames(dia2)[dia2_pd$`status:ch1` == "Diabetic donor"], 14)
+ctrl_pick <- sample(colnames(dia2_full)[dia2_pd_full$`status:ch1` == "Non-diabetic donor"], 40)
+t2d_pick  <- sample(colnames(dia2_full)[dia2_pd_full$`status:ch1` == "Diabetic donor"], 14)
 
-dia2_new <- dia2[, c(ctrl_pick, t2d_pick)]
-dia2_pd_new <- dia2_pd[match(colnames(dia2_new), rownames(dia2_pd)), ]
+dia2_new <- dia2_full[, c(ctrl_pick, t2d_pick)]
+dia2_pd_new <- dia2_pd_full[match(colnames(dia2_new), rownames(dia2_pd_full)), ]
 
 ##dia3 = dia3[,!colnames(dia3)%in%colnames(dia2_new)]
 ##dia3_pd = dia3_pd[match(colnames(dia3),rownames(dia3_pd)),]
@@ -24,11 +24,12 @@ dia2_pd <- dia2_pd_new
 
 set.seed(2)  #Repeated random grouping
 #
-ctrl_pick <- sample(colnames(dia2)[dia2_pd$`status:ch1` == "Non-diabetic donor"],40)
-t2d_pick  <- sample(colnames(dia2)[dia2_pd$`status:ch1` == "Diabetic donor"], 14)
+ctrl_pick <- sample(colnames(dia2_full)[dia2_pd_full$`status:ch1` == "Non-diabetic donor"], 40)
+t2d_pick  <- sample(colnames(dia2_full)[dia2_pd_full$`status:ch1` == "Diabetic donor"], 14)
 
-dia2_new <- dia2[, c(ctrl_pick, t2d_pick)]
-dia2_pd_new <- dia2_pd[match(colnames(dia2_new), rownames(dia2_pd)), ]
+dia2_new <- dia2_full[, c(ctrl_pick, t2d_pick)]
+dia2_pd_new <- dia2_pd_full[match(colnames(dia2_new), rownames(dia2_pd_full)), ]
+
 
 ##dia3 = dia3[,!colnames(dia3)%in%colnames(dia2_new)]
 ##dia3_pd = dia3_pd[match(colnames(dia3),rownames(dia3_pd)),]
@@ -37,11 +38,12 @@ dia2_pd <- dia2_pd_new
 
 set.seed(3)  #Repeated random grouping
 #
-ctrl_pick <- sample(colnames(dia2)[dia2_pd$`status:ch1` == "Non-diabetic donor"], 40)
-t2d_pick  <- sample(colnames(dia2)[dia2_pd$`status:ch1` == "Diabetic donor"], 14)
+ctrl_pick <- sample(colnames(dia2_full)[dia2_pd_full$`status:ch1` == "Non-diabetic donor"], 40)
+t2d_pick  <- sample(colnames(dia2_full)[dia2_pd_full$`status:ch1` == "Diabetic donor"], 14)
 
-dia2_new <- dia2[, c(ctrl_pick, t2d_pick)]
-dia2_pd_new <- dia2_pd[match(colnames(dia2_new), rownames(dia2_pd)), ]
+dia2_new <- dia2_full[, c(ctrl_pick, t2d_pick)]
+dia2_pd_new <- dia2_pd_full[match(colnames(dia2_new), rownames(dia2_pd_full)), ]
+
 
 ##dia3 = dia3[,!colnames(dia3)%in%colnames(dia2_new)]
 ##dia3_pd = dia3_pd[match(colnames(dia3),rownames(dia3_pd)),]
